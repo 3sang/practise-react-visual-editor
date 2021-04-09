@@ -21,7 +21,7 @@ module.exports = {
     'react/jsx-indent-props': 0, // Validate props indentation in JSX (fixable) JSX中验证道具缩进(可固定)
     'react/jsx-closing-bracket-location': 0, // Validate closing bracket location in JSX (fixable) 验证JSX中的右括号位置(可固定)
     'react/react-in-jsx-scope': 0, // Prevent missing React when using JSX 使用JSX时防止丢失反应
-    'react/jsx-filename-extension': [1, { extensions: ['.js'] }], // Restrict file extensions that may contain JSX 限制可能包含JSX的文件扩展名
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.ts', '.tsx'] }], // Restrict file extensions that may contain JSX 限制可能包含JSX的文件扩展名
     'react/jsx-wrap-multilines': 0, // Prevent missing parentheses around multilines JSX (fixable) 防止在多行JSX周围缺少括号
     'react/prefer-stateless-function': 0, // Enforce stateless components to be written as a pure function 强制将无状态组件编写为纯函数
     'react/prop-types': 0, // Prevent missing props validation in a React component definition 防止在React组件定义中缺少道具验证
@@ -88,7 +88,7 @@ module.exports = {
     'no-useless-escape': 0, // 禁用不必要的转义字符
     'no-restricted-syntax': 1, // 禁用特定的语法
     'guard-for-in': 1, // 要求 for-in 循环中有一个 if 语句
-    'semi': ['error', 'always'],
+    semi: ['error', 'always'],
   },
   settings: {
     polyfills: ['fetch', 'promises', 'url', 'object-assign'],
