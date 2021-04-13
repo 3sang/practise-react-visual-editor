@@ -3,7 +3,7 @@
  * Author       : Saraku.
  * Date         : 2021-04-12 22:52:10
  * LastEditors  : Saraku.
- * LastEditTime : 2021-04-13 00:05:41
+ * LastEditTime : 2021-04-13 22:14:09
  */
 import * as services from '../services/editCore';
 import { EffectsCommandMap, AnyAction } from '../../types/modelsType';
@@ -17,7 +17,7 @@ export default {
     *setSelected({ payload }: AnyAction, { put }: EffectsCommandMap) {
       yield put({
         type: 'editCore/saveSelected',
-        payload,
+        payload: { selected: payload },
       });
     },
   },

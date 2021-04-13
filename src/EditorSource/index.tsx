@@ -7,9 +7,9 @@ import styles from './index.less';
 export default function Index(props: any) {
   return (
     <div className={styles.default}>
-      <SettingForm />
-      <DesignPanel />
       <ComponentContainer />
+      <DesignPanel />
+      <SettingForm />
     </div>
   );
 }
