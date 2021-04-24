@@ -3,26 +3,29 @@
  * Author       : Saraku.
  * Date         : 2021-04-12 22:05:22
  * LastEditors  : Saraku.
- * LastEditTime : 2021-04-19 00:10:16
+ * LastEditTime : 2021-04-24 22:04:57
  */
 
 import React, { useState, useEffect, DragEvent, createElement, ReactNode } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { dragItemType,NodeConfigType } from '@/EditorSource/types/templateType';
-import styles from './index.less'
+import { dragItemType, PluginConfigType } from '@/EditorSource/types/templateType';
+import { createNodes } from '../../../utils/pluginUtils';
+import styles from './index.less';
 
 /** 将组件注册到公共（plugin中暴露）的组件包裹起来，主要使用children。
  * 可以包裹JSON或者组件
  */
 function DragItem(props: dragItemType) {
   const { children } = props;
-  const { type = '', props: nodePorps = {}, childrenNodes = [] } = (children as NodeConfigType);
+  const { type = '', props: nodePorps = {}, childrenNodes = [] } = children?.[
+    Object.keys(children)[0]
+  ];
   const [element, setElement] = useState<ReactNode>();
   const dispatch = useDispatch();
 
   useEffect(() => {
     // 递归处理childrenNodes,将标准化为createElement可接收，createElemnt无法递归处理，都是一个个渲染出来的。
-    setElement(type ? createElement(type, nodePorps) : children);
+    setElement(type ? createNodes(children) : <></>);
   }, [nodePorps]);
 
   /**

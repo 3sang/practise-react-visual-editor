@@ -5,7 +5,6 @@ import {Test} from '../../plugin'
 
 export default function ComponentContainer(props: any) {
   return <div className={styles.leftPane}>
-    <DragItem >这是一个测试拖拽用的Box</DragItem>
     <DragItem>{Test}</DragItem>
   </div>;
 }

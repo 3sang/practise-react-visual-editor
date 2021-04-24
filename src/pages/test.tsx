@@ -18,7 +18,6 @@ export default function Index() {
   // }
 
   function formatDate(date, formatStr) {
-    console.log(typeof date.getFullYear());
     const obj = {
       yyyy: date.getFullYear(),
       yy: ('' + date.getFullYear()).substr(-2),
@@ -40,22 +39,13 @@ export default function Index() {
     });
   }
 
-  return (
-    <div
-      onClick={() =>
-        console.log(
-          formatDate(
-            new Date(1409894060000 + new Date().getTimezoneOffset() * 60 * 1000),
-            'yyyy-MM-dd HH:mm:ss 星期w',
-          ),'2014-09-05 05:14:20 星期五',
-          formatDate(
-            new Date(1409894060000 + new Date().getTimezoneOffset() * 60 * 1000),
-            'yyyy-MM-dd HH:mm:ss 星期w',
-          ) === '2014-09-05 05:14:20 星期五'
-        )
-      }
-    >
-      测试
-    </div>
-  );
+  function flatten(arr) {
+    while (arr.some(item => Array.isArray(item))) {
+      console.log(arr, ...arr);
+      arr = [].concat(...arr);
+    }
+    return arr;
+  }
+
+  return <div onClick={() => console.log(flatten([1, 2, 3, [4, 5, [6, 7, 8]]]))}>测试</div>;
 }
